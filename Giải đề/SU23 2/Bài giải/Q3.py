@@ -1,23 +1,18 @@
-import sys
+# Nhập n phần tử, mỗi phần tử cách nhau bởi khoảng trắng
+n = int(input('Enter the number of elements: '))
+lst = list(map(int, input('List: ').split()))
 
-# Copy-paste from cheat_sheet.py
-def average_divisible_by(numbers, x):
-    divisible = [n for n in numbers if n % x == 0]
-    if not divisible:
-        return 0
-    return sum(divisible) / len(divisible)
+x = int(input('Enter x = '))
 
-def main():
-    # Given statements to input data
-    n = int(input()) # Number of elements (though we can just use the list)
-    lst = []
-    for _ in range(n):
-        lst.append(int(input()))
-    x = int(input())
+def is_divisible(a, b):
+    """Kiểm tra a có chia hết cho b không"""
+    if b == 0: return False
+    return a % b == 0
+result = 0
+count = 0
+for i in lst:
+    if is_divisible(i, x): 
+        result += i
+        count += 1
     
-    # Write your statements here
-    res = average_divisible_by(lst, x)
-    print(f"{res:.2f}")
-
-if __name__ == "__main__":
-    main()
+print(result / count)

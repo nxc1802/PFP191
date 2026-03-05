@@ -1,18 +1,13 @@
-import sys
+a = int(input('a = '))
+b = int(input('b = '))
+c = int(input('c = '))
 
-# Copy-paste from cheat_sheet.py
-def min_of_three(a, b, c):
-    return min(a, b, c)
+def find_min_3(a, b, c):
+    min_val = a
+    if b < min_val: min_val = b
+    if c < min_val: min_val = c
+    return min_val
 
-def main():
-    # Given statements to input data
-    a = int(input())
-    b = int(input())
-    c = int(input())
-    
-    # Write your statements here
-    result = min_of_three(a, b, c)
-    print(result)
+result = find_min_3(a, b, c)
 
-if __name__ == "__main__":
-    main()
+print(result)
