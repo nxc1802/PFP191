@@ -1,0 +1,17 @@
+# Scripts
+Giải đề/crop_images.py
+
+# Cropped outputs
+Giải đề/**/cropped/
+
+# Images
+*.webp
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.tif
+*.svg
+*.ico

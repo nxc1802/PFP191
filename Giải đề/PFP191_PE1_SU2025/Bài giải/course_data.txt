@@ -1,0 +1,11 @@
+course_id,course_name,instructor,department,credit_hours
+C101,IntroToAI,Dr.Smith,CS,3
+C102,WebDevelopment,Dr.Jones,CS,4
+C103,DatabaseSystems,Dr.Brown,CS,4
+C104,MachineLearning,Dr.White,CS,4
+C105,DataStructures,Dr.Taylor,CS,3
+C106,Calculus,Dr.Adams,Math,2
+C107,LinearAlgebra,Dr.Green,Math,3
+C108,Statistics,Dr.Hall,Math,2
+C109,Philosophy,Dr.Gray,Arts,3
+C110,Literature,Dr.Black,Arts,2
