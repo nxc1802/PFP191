@@ -1,39 +1,39 @@
 import os
 
-def is_armstrong(n):
-    s = str(n)
-    num_digits = len(s)
-    total = sum(int(digit)**num_digits for digit in s)
-    return total == n
-
 def solve_case_1():
     filename = input().strip()
-    if not os.path.exists(filename): return
-    print("OUTPUT")
-    with open(filename, 'r') as f:
-        # Read all numbers separated by whitespace
+    if not os.path.exists(f"Giải đề/PFP191 - FA25 - PE/Bài giải/{filename}"):
+        print("File not found")
+        return
+    
+    with open(f"Giải đề/PFP191 - FA25 - PE/Bài giải/{filename}", "r") as f:
         content = f.read().split()
-        for num in content:
-            print(num)
+        print(content)
+
+
+def is_amstrong(num):
+    num_str = str(num)
+    length = len(num_str)
+    sum = 0
+    for digit in num_str:
+        sum += int(digit)**length
+    return sum == num
+
 
 def solve_case_2():
     filename = input().strip()
-    if not os.path.exists(filename): return
-    print("OUTPUT")
-    armstrong_nums = []
-    with open(filename, 'r') as f:
+    if not os.path.exists(f"Giải đề/PFP191 - FA25 - PE/Bài giải/{filename}"):
+        print("File not found")
+        return
+    
+    with open(f"Giải đề/PFP191 - FA25 - PE/Bài giải/{filename}", "r") as f:
         content = f.read().split()
+        armstrong_nums = []
         for num_str in content:
-            try:
-                num = int(num_str)
-                if is_armstrong(num):
-                    if num not in armstrong_nums:
-                        armstrong_nums.append(num)
-            except ValueError:
-                continue
-    # Sort and print
-    armstrong_nums.sort()
-    print(armstrong_nums)
+            num = int(num_str)
+            if is_amstrong(num) and num not in armstrong_nums:
+                armstrong_nums.append(num)
+        print(sorted(armstrong_nums))
 
 def main():
     while True:

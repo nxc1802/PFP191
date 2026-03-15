@@ -1,7 +1,7 @@
 class Teacher:
     def __init__(self, name, age, class_info):
         self.name = name
-        self.age = int(age)
+        self.age = age
         self.class_info = class_info
     
     def __str__(self):
@@ -10,73 +10,70 @@ class Teacher:
 class Professor(Teacher):
     def __init__(self, name, age, class_info, address):
         super().__init__(name, age, class_info)
-        self.__address = address
+        self.address = address
     
-    def get_address(self):
-        return self.__address
-    
-    def set_address(self, address):
-        self.__address = address
-        
     def display_info(self):
-        print("OUTPUT")
-        print(f"Age: {self.age}")
-        print(f"Class: {self.class_info}")
-        print(f"Name: {self.name}")
-        print(f"Address: {self.__address}")
+        print(f"Age: {self.age}\nClass: {self.class_info}\nName: {self.name}\nAddress: {self.address}")
+        
+    def get_info(self):
+        return f"Name: {self.name}\nAge: {self.age}\nClass: {self.class_info}\nAddress: {self.address}"
+    
+    def set_info(self, name, age, class_info, address):
+        self.name = name
+        self.age = age
+        self.class_info = class_info
+        self.address = address
 
 def input_teachers():
-    n = int(input("Enter the number of teachers: "))
+    print("Enter the number of teachers: ")
+    n = int(input())
     teachers = []
-    for i in range(1, n + 1):
-        print(f"Enter teacher {i}")
-        name = input("Enter name: ")
-        age = input("Enter age: ")
-        c_info = input("Enter class: ")
-        teachers.append(Teacher(name, age, c_info))
+    for i in range(n):
+        print("Enter teacher name: ")
+        name = input()
+        print("Enter teacher age: ")
+        age = int(input())
+        print("Enter teacher class info: ")
+        class_info = input()
+        teachers.append(Teacher(name, age, class_info))
     return teachers
 
+def solve_case_3():
+    pass
+
+
 def main():
-    teachers = []
     while True:
         try:
             print("Your selection (1 -> 4): ", end="")
-            line = input().strip()
-            if not line: break
-            choice = line
+            choice = input().strip()
+            if not choice: break
             
             if choice == "1":
                 teachers = input_teachers()
                 print("OUTPUT")
-                for i, t in enumerate(teachers, 1):
-                    print(f"Teacher {i}")
-                    print(t)
-            
+                for teacher in teachers:
+                    print(teacher)
             elif choice == "2":
-                # Sort by decreasing age
                 teachers.sort(key=lambda x: x.age, reverse=True)
                 print("OUTPUT")
-                for i, t in enumerate(teachers, 1):
-                    print(f"Teacher {i}")
-                    print(t)
-                    
+                for teacher in teachers:
+                    print(teacher)
             elif choice == "3":
-                # Filter class starts with SE and sort by name
                 filtered = [t for t in teachers if t.class_info.startswith("SE")]
                 filtered.sort(key=lambda x: x.name)
                 print("OUTPUT")
-                for i, t in enumerate(filtered, 1):
-                    print(f"Teacher {i}")
-                    print(t)
-            
+                for teacher in filtered:
+                    print(teacher)
             elif choice == "4":
                 name = input("Enter name: ")
-                age = input("Enter age: ")
-                c_info = input("Enter class: ")
-                address = input("Enter address : ")
-                prof = Professor(name, age, c_info, address)
+                age = int(input("Enter age: "))
+                class_info = input("Enter class: ")
+                address = input("Enter address: ")
+                prof = Professor(name, age, class_info, address)
+                print("OUTPUT")
                 prof.display_info()
-                
+            
             print("FINISH")
         except EOFError:
             break
